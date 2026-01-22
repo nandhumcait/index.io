@@ -11,14 +11,14 @@
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;background:#f4f6f9;color:#333}
 
-/* NAV */
+/* NAVBAR */
 nav{background:#0d47a1;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
-nav h2{color:#fff}
+nav h2{color:#fff;font-weight:600}
 nav ul{list-style:none;display:flex;gap:25px}
 nav a{color:#fff;text-decoration:none;font-weight:500}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#e3f2fd,#fff);padding:90px 40px;text-align:center}
+.hero{background:linear-gradient(135deg,#e3f2fd,#ffffff);padding:90px 40px;text-align:center}
 .hero h1{font-size:42px;color:#0d47a1}
 .hero p{margin-top:15px;font-size:18px;color:#555;max-width:720px;margin:auto}
 .hero button{margin-top:30px;background:#0d47a1;color:#fff;border:none;padding:12px 30px;border-radius:30px;font-size:15px;cursor:pointer}
@@ -35,7 +35,7 @@ section h2{text-align:center;font-size:30px;color:#0d47a1;margin-bottom:40px}
 .skill{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.1);text-align:center}
 
 /* PROJECTS */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .project{background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 22px rgba(0,0,0,.12);transition:.3s}
 .project:hover{transform:translateY(-6px)}
 .project h3{color:#0d47a1;margin-bottom:10px}
@@ -44,6 +44,7 @@ section h2{text-align:center;font-size:30px;color:#0d47a1;margin-bottom:40px}
 
 /* CONTACT */
 .contact{text-align:center}
+.contact a{color:#0d47a1;text-decoration:none;font-weight:500}
 
 /* FOOTER */
 footer{background:#0d47a1;color:#fff;text-align:center;padding:18px;margin-top:40px}
@@ -79,31 +80,51 @@ nav{flex-direction:column;gap:10px}
 
 <section id="about" class="about reveal">
 <h2>About Me</h2>
-<p>I enjoy working with real-world datasets, performing exploratory data analysis, and converting raw data into meaningful insights.</p>
+<p>
+I enjoy working with real-world datasets, performing exploratory data analysis,
+and converting raw data into meaningful insights for decision-making.
+</p>
 </section>
 
 <section id="skills" class="reveal">
 <h2>Skills</h2>
 <div class="skills">
-<div class="skill">Statistics</div>
-<div class="skill">Python</div>
-<div class="skill">Data Analysis</div>
-<div class="skill">IoT Analytics</div>
+<div class="skill">Statistics & Probability</div>
+<div class="skill">Python (Pandas, NumPy)</div>
+<div class="skill">Data Analysis & EDA</div>
+<div class="skill">IoT Sensor Analytics</div>
 </div>
 </section>
 
 <section id="projects" class="reveal">
-<h2>GitHub Projects</h2>
-<div class="projects" id="repoContainer">
-<p>Loading repositories...</p>
+<h2>Projects</h2>
+<div class="projects">
+
+<div class="project">
+<h3>Customer behavior analysis</h3>
+<p>Statistical analysis and visualization of transportation and environmental sensor data.</p>
+<a href="https://github.com/nandhumcait/customer_behavior_analysis.git" target="_blank">View Project</a>
+</div>
+
+<div class="project">
+<h3>Apple Quality Predict</h3>
+<p>Performed EDA on real-world datasets focusing on missing values and correlations.</p>
+<a href="https://github.com/nandhumcait/applequalityprediction.git" target="_blank">View Project</a>
+</div>
+
+<div class="project">
+<h3>Credit Card Fraud Detection</h3>
+<p>Visual explanation of mean, variance, and standard deviation using Python.</p>
+<a href="https://github.com/nandhumcait/Credit-card-fraud-detection.git" target="_blank">View Project</a>
+</div>
+
 </div>
 </section>
 
 <section id="contact" class="contact reveal">
 <h2>Contact</h2>
-<p>Email: nandhakumar@email.com</p>
-<p>GitHub: github.com/nandhakumar</p>
-<p>LinkedIn: linkedin.com/in/nandhakumar</p>
+<p>Email: <a href="mailto:nandhakumar@email.com">nandhakumar@email.com</a></p>
+<p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
 </section>
 
 <footer>
@@ -112,43 +133,18 @@ nav{flex-direction:column;gap:10px}
 
 <script>
 function scrollToContact(){
-  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
 }
-
-/* SCROLL ANIMATION */
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top<window.innerHeight-100){
-      r.classList.add("active");
-    }
-  });
+reveals.forEach(r=>{
+if(r.getBoundingClientRect().top<window.innerHeight-100){
+r.classList.add("active");
+}
 });
-
-/* ===== AUTO GITHUB FETCH ===== */
-const username="nandhumcait"; // 🔴 CHANGE THIS
-fetch(`https://api.github.com/users/${username}/repos`)
-.then(res=>res.json())
-.then(data=>{
-  const container=document.getElementById("repoContainer");
-  container.innerHTML="";
-  data
-  .filter(repo=>!repo.fork)
-  .slice(0,6)
-  .forEach(repo=>{
-    container.innerHTML+=`
-      <div class="project">
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "No description available."}</p>
-        <a href="${repo.html_url}" target="_blank">View on GitHub</a>
-      </div>
-    `;
-  });
-})
-.catch(()=>{
-  document.getElementById("repoContainer").innerHTML="Failed to load repositories.";
 });
 </script>
 
 </body>
 </html>
+
