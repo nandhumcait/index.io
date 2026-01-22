@@ -4,57 +4,172 @@
 <meta charset="UTF-8">
 <title>Nandha Kumar | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#f4f6f9;color:#333}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#fdfbfb);
+  color:#1f2937;
+}
 
 /* NAVBAR */
-nav{background:#0d47a1;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+nav{
+  background:linear-gradient(90deg,#1e3a8a,#2563eb);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 nav h2{color:#fff;font-weight:600}
 nav ul{list-style:none;display:flex;gap:25px}
-nav a{color:#fff;text-decoration:none;font-weight:500}
+nav a{color:#e0e7ff;text-decoration:none;font-weight:500}
+nav a:hover{color:#ffffff}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#e3f2fd,#ffffff);padding:90px 40px;text-align:center}
-.hero h1{font-size:42px;color:#0d47a1}
-.hero p{margin-top:15px;font-size:18px;color:#555;max-width:720px;margin:auto}
-.hero button{margin-top:30px;background:#0d47a1;color:#fff;border:none;padding:12px 30px;border-radius:30px;font-size:15px;cursor:pointer}
+.hero{
+  background:linear-gradient(135deg,#c7d2fe,#e0e7ff);
+  padding:100px 40px;
+  text-align:center;
+}
+.hero h1{
+  font-size:44px;
+  background:linear-gradient(90deg,#1e3a8a,#2563eb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  margin-top:18px;
+  font-size:18px;
+  color:#374151;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.hero button{
+  margin-top:35px;
+  background:linear-gradient(90deg,#2563eb,#3b82f6);
+  color:#fff;
+  border:none;
+  padding:14px 34px;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(37,99,235,0.35);
+}
+.hero button:hover{opacity:0.9}
 
 /* SECTION */
-section{padding:70px 40px;max-width:1100px;margin:auto}
-section h2{text-align:center;font-size:30px;color:#0d47a1;margin-bottom:40px}
+section{padding:80px 40px;max-width:1150px;margin:auto}
+section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:45px;
+  color:#1e3a8a;
+}
 
 /* ABOUT */
-.about p{text-align:center;max-width:850px;margin:auto;color:#555}
+.about p{
+  text-align:center;
+  max-width:880px;
+  margin:auto;
+  color:#374151;
+  font-size:16px;
+}
 
 /* SKILLS */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
-.skill{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.1);text-align:center}
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.skill{
+  background:linear-gradient(135deg,#ffffff,#eef2ff);
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  text-align:center;
+  font-weight:500;
+  color:#1e3a8a;
+}
 
 /* PROJECTS */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.project{background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 22px rgba(0,0,0,.12);transition:.3s}
-.project:hover{transform:translateY(-6px)}
-.project h3{color:#0d47a1;margin-bottom:10px}
-.project p{font-size:14px;color:#555;margin-bottom:15px}
-.project a{display:inline-block;background:#0d47a1;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-size:13px}
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+.project{
+  background:#ffffff;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.project:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+.project h3{
+  color:#1e3a8a;
+  margin-bottom:12px;
+}
+.project p{
+  font-size:14px;
+  color:#4b5563;
+  margin-bottom:18px;
+}
+.project a{
+  display:inline-block;
+  background:linear-gradient(90deg,#2563eb,#3b82f6);
+  color:#fff;
+  padding:10px 22px;
+  border-radius:22px;
+  text-decoration:none;
+  font-size:13px;
+  box-shadow:0 6px 16px rgba(37,99,235,0.3);
+}
+.project a:hover{opacity:.9}
 
 /* CONTACT */
 .contact{text-align:center}
-.contact a{color:#0d47a1;text-decoration:none;font-weight:500}
+.contact p{margin-bottom:14px}
+.contact a{
+  color:#2563eb;
+  font-weight:600;
+  text-decoration:none;
+}
 
 /* FOOTER */
-footer{background:#0d47a1;color:#fff;text-align:center;padding:18px;margin-top:40px}
+footer{
+  background:linear-gradient(90deg,#1e3a8a,#2563eb);
+  color:#e0e7ff;
+  text-align:center;
+  padding:20px;
+  margin-top:50px;
+  font-size:14px;
+}
 
 /* SCROLL ANIMATION */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .9s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
 
+/* MOBILE */
 @media(max-width:600px){
-.hero h1{font-size:32px}
+.hero h1{font-size:34px}
 nav{flex-direction:column;gap:10px}
 }
 </style>
@@ -82,7 +197,7 @@ nav{flex-direction:column;gap:10px}
 <h2>About Me</h2>
 <p>
 I enjoy working with real-world datasets, performing exploratory data analysis,
-and converting raw data into meaningful insights for decision-making.
+and converting raw data into meaningful insights for business and research decisions.
 </p>
 </section>
 
@@ -101,20 +216,20 @@ and converting raw data into meaningful insights for decision-making.
 <div class="projects">
 
 <div class="project">
-<h3>Customer behavior analysis</h3>
-<p>Statistical analysis and visualization of transportation and environmental sensor data.</p>
+<h3>Customer Behavior Analysis</h3>
+<p>Statistical analysis and visualization of customer behavior datasets.</p>
 <a href="https://github.com/nandhumcait/customer_behavior_analysis.git" target="_blank">View Project</a>
 </div>
 
 <div class="project">
-<h3>Apple Quality Predict</h3>
-<p>Performed EDA on real-world datasets focusing on missing values and correlations.</p>
+<h3>Apple Quality Prediction</h3>
+<p>Exploratory data analysis and predictive modeling for apple quality classification.</p>
 <a href="https://github.com/nandhumcait/applequalityprediction.git" target="_blank">View Project</a>
 </div>
 
 <div class="project">
 <h3>Credit Card Fraud Detection</h3>
-<p>Visual explanation of mean, variance, and standard deviation using Python.</p>
+<p>Detection of fraudulent transactions using statistical and ML techniques.</p>
 <a href="https://github.com/nandhumcait/Credit-card-fraud-detection.git" target="_blank">View Project</a>
 </div>
 
@@ -124,13 +239,13 @@ and converting raw data into meaningful insights for decision-making.
 <section id="contact" class="contact reveal">
 <h2>Contact</h2>
 <p>Email: <a href="mailto:nandhumcait@gmail.com">nandhumcait@gmail.com</a></p>
-
 <p>
-  LinkedIn:
-  <a href="https://www.linkedin.com/in/nandhumca" target="_blank">
-    nandha.linkedin
-  </a>
+LinkedIn:
+<a href="https://www.linkedin.com/in/nandhumca" target="_blank">
+nandha.linkedin
+</a>
 </p>
+</section>
 
 <footer>
 © 2026 Nandha Kumar | Portfolio
@@ -138,15 +253,15 @@ and converting raw data into meaningful insights for decision-making.
 
 <script>
 function scrollToContact(){
-document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
 }
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
-reveals.forEach(r=>{
-if(r.getBoundingClientRect().top<window.innerHeight-100){
-r.classList.add("active");
-}
-});
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top < window.innerHeight-100){
+      r.classList.add("active");
+    }
+  });
 });
 </script>
 
