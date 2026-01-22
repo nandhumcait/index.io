@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nandha Kumar | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#f4f6f9;color:#333}
+
+/* NAV */
+nav{background:#0d47a1;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+nav h2{color:#fff}
+nav ul{list-style:none;display:flex;gap:25px}
+nav a{color:#fff;text-decoration:none;font-weight:500}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#e3f2fd,#fff);padding:90px 40px;text-align:center}
+.hero h1{font-size:42px;color:#0d47a1}
+.hero p{margin-top:15px;font-size:18px;color:#555;max-width:720px;margin:auto}
+.hero button{margin-top:30px;background:#0d47a1;color:#fff;border:none;padding:12px 30px;border-radius:30px;font-size:15px;cursor:pointer}
+
+/* SECTION */
+section{padding:70px 40px;max-width:1100px;margin:auto}
+section h2{text-align:center;font-size:30px;color:#0d47a1;margin-bottom:40px}
+
+/* ABOUT */
+.about p{text-align:center;max-width:850px;margin:auto;color:#555}
+
+/* SKILLS */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.skill{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.1);text-align:center}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.project{background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 22px rgba(0,0,0,.12);transition:.3s}
+.project:hover{transform:translateY(-6px)}
+.project h3{color:#0d47a1;margin-bottom:10px}
+.project p{font-size:14px;color:#555;margin-bottom:15px}
+.project a{display:inline-block;background:#0d47a1;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-size:13px}
+
+/* CONTACT */
+.contact{text-align:center}
+
+/* FOOTER */
+footer{background:#0d47a1;color:#fff;text-align:center;padding:18px;margin-top:40px}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+.hero h1{font-size:32px}
+nav{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Nandha Kumar</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero reveal">
+<h1>Hi, I'm Nandha Kumar</h1>
+<p>Data & Statistics enthusiast skilled in Python, Data Analysis, Visualization, and IoT Sensor Data.</p>
+<button onclick="scrollToContact()">Contact Me</button>
+</div>
+
+<section id="about" class="about reveal">
+<h2>About Me</h2>
+<p>I enjoy working with real-world datasets, performing exploratory data analysis, and converting raw data into meaningful insights.</p>
+</section>
+
+<section id="skills" class="reveal">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill">Statistics</div>
+<div class="skill">Python</div>
+<div class="skill">Data Analysis</div>
+<div class="skill">IoT Analytics</div>
+</div>
+</section>
+
+<section id="projects" class="reveal">
+<h2>GitHub Projects</h2>
+<div class="projects" id="repoContainer">
+<p>Loading repositories...</p>
+</div>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2>Contact</h2>
+<p>Email: nandhakumar@email.com</p>
+<p>GitHub: github.com/nandhakumar</p>
+<p>LinkedIn: linkedin.com/in/nandhakumar</p>
+</section>
+
+<footer>
+© 2026 Nandha Kumar | Portfolio
+</footer>
+
+<script>
+function scrollToContact(){
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+/* SCROLL ANIMATION */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top<window.innerHeight-100){
+      r.classList.add("active");
+    }
+  });
+});
+
+/* ===== AUTO GITHUB FETCH ===== */
+const username="nandhumcait"; // 🔴 CHANGE THIS
+fetch(`https://api.github.com/users/${username}/repos`)
+.then(res=>res.json())
+.then(data=>{
+  const container=document.getElementById("repoContainer");
+  container.innerHTML="";
+  data
+  .filter(repo=>!repo.fork)
+  .slice(0,6)
+  .forEach(repo=>{
+    container.innerHTML+=`
+      <div class="project">
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available."}</p>
+        <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+      </div>
+    `;
+  });
+})
+.catch(()=>{
+  document.getElementById("repoContainer").innerHTML="Failed to load repositories.";
+});
+</script>
+
+</body>
+</html>
